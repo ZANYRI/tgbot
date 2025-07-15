@@ -65,11 +65,11 @@ func answer(b *gotgbot.Bot, ctx *ext.Context) error {
 		return fmt.Errorf("failed to call ReqApi: %w", err)
 	}
 
-	ctx.EffectiveMessage.Reply(b, response, &gotgbot.SendMessageOpts{
-    ParseMode: "Markdown",
+	_, sendErr := ctx.EffectiveMessage.Reply(b, response, &gotgbot.SendMessageOpts{
+		ParseMode: "Markdown",
 	})
-	if err != nil {
-		return fmt.Errorf("failed to send reply: %w", err)
+	if sendErr != nil {
+		return fmt.Errorf("failed to send reply: %w", sendErr)
 	}
 
 	return nil
