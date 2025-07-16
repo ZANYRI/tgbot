@@ -13,7 +13,7 @@ func ReqApi(message string) (string, error) {
 	config, err := ReadEnv()
 
 	if err != nil {
-		log.Fatal("Ошибка!")
+		log.Fatal("Error read env!")
 	} 
 
 	client := openai.NewClient(
